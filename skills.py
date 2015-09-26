@@ -43,7 +43,6 @@ def all_even(number_list):
     return evens_only
 
 
-
 def print_indeces(my_list):
     """Print the index of each list item, followed by the item itself.
     Do this without using a counting variable. I.e. don't do something
@@ -165,105 +164,136 @@ def word_lengths(word_list):
     return lengths
 
 
-# def sum_numbers(number_list):
-#     """Return the sum of all of the numbers in the list.
+def sum_numbers(number_list):
+    """Return the sum of all of the numbers in the list.
 
-#     Python has a built-in function, `sum()`, which already does this -- but for
-#     this exercise, you should not use it.
+    Python has a built-in function, `sum()`, which already does this -- but for
+    this exercise, you should not use it.
 
-#         >>> sum_numbers([1, 2, 3, 10])
-#         16
+        >>> sum_numbers([1, 2, 3, 10])
+        16
 
-#     Any empty list should return the sum of zero:
+    Any empty list should return the sum of zero:
 
-#         >>> sum_numbers([])
-#         0
+        >>> sum_numbers([])
+        0
 
-#     """
+    """
+    sum = 0
 
-#     return None
+    for num in number_list:
+        sum += num
 
-
-# def mult_numbers(number_list):
-#     """Return product (result of multiplication) of the numbers in the list.
-
-#         >>> mult_numbers([1, 2, 3])
-#         6
-
-#     Obviously, if there is a zero in the input, the product will be zero:
-
-#         >>> mult_numbers([10, 20, 0, 50])
-#         0
-
-#     As explained at http://en.wikipedia.org/wiki/Empty_product, if the list is
-#     empty, the product should be 1:
-
-#         >>> mult_numbers([])
-#         1
-
-#     """
-
-#     return None
+    return sum
 
 
-# def join_strings(word_list):
-#     """Return a string of all input strings joined together.
+def mult_numbers(number_list):
+    """Return product (result of multiplication) of the numbers in the list.
 
-#     Python ha a built-in method on lists, `join` -- but this exercise, you
-#     should not use it.
+        >>> mult_numbers([1, 2, 3])
+        6
 
-#         >>> join_strings(["spam", "spam", "bacon", "balloonicorn"])
-#         'spamspambaconballoonicorn'
+    Obviously, if there is a zero in the input, the product will be zero:
 
-#     For an empty list, you should return an empty string:
+        >>> mult_numbers([10, 20, 0, 50])
+        0
 
-#         >>> join_strings([])
-#         ''
+    As explained at http://en.wikipedia.org/wiki/Empty_product, if the list is
+    empty, the product should be 1:
 
-#     """
+        >>> mult_numbers([])
+        1
 
-#     return "Not the right thing"
+    """
 
+    product = 1
 
-# def average(number_list):
-#     """Return the average (mean) of the list of numbers given.
+    for num in number_list:
+        product *= num
 
-#         >>> average([2, 12, 3])
-#         5.666666666666667
-
-#     There is no defined answer if the list given is empty. It's fine if
-#     this raises an error when given an empty list.
-#     """
-
-    # return 0
+    return product
 
 
-#############################################################################
+def join_strings(word_list):
+    """Return a string of all input strings joined together.
+
+    Python ha a built-in method on lists, `join` -- but this exercise, you
+    should not use it.
+
+        >>> join_strings(["spam", "spam", "bacon", "balloonicorn"])
+        'spamspambaconballoonicorn'
+
+    For an empty list, you should return an empty string:
+
+        >>> join_strings([])
+        ''
+
+    """
+
+    string = ""
+
+    for word in word_list:
+        string += word
+
+    return string
+
+
+def average(number_list):
+    """Return the average (mean) of the list of numbers given.
+
+        >>> average([2, 12, 3])
+        5.666666666666667
+
+    There is no defined answer if the list given is empty. It's fine if
+    this raises an error when given an empty list.
+    """
+    sum = 0.0
+
+    for num in number_list:
+        sum += float(num)
+
+    mean = sum / len(number_list)
+
+    return mean
+
+
+############################################################################
 # END OF SKILLS TEST: You can stop here, or read on to work on advanced problem.
 
 # Uncomment the function below to work on the advanced problem.
 # Tip: To comment or uncomment blocks of code, highlight what you want to
 #    comment or uncomment, and then CMD+"/" or CTRL-"/"
 
-# def advanced_join_strings(list_of_words):
-#     """Return a single string with each word from the input list
-#     separated by a comma.
+def advanced_join_strings(list_of_words):
+    """Return a single string with each word from the input list
+    separated by a comma.
 
-#         >>> advanced_join_strings(["Labrador", "Poodle", "French Bulldog"])
-#         'Labrador, Poodle, French Bulldog'
+        >>> advanced_join_strings(["Labrador", "Poodle", "French Bulldog"])
+        'Labrador, Poodle, French Bulldog'
 
-#     If there's only one thing in the list, it should return just that
-#     thing, of course:
+    If there's only one thing in the list, it should return just that
+    thing, of course:
 
-#         >>> advanced_join_strings(["Pretzel"])
-#         'Pretzel'
+        >>> advanced_join_strings(["Pretzel"])
+        'Pretzel'
 
-#     """
+    """
+   
+    string = ""
 
-#     return ""
+    if len(list_of_words) >= 1:
+        string = list_of_words[0]
+
+    if len(list_of_words) > 1:
+        index = 1
+        while index < len(list_of_words):
+            string = "{}, {}".format(string, list_of_words[index])
+            index +=1
+
+    return string
 
 # END OF ASSIGNMENT: You can ignore everything below.
-##############################################################################
+#############################################################################
 
 if __name__ == "__main__":
     import doctest
